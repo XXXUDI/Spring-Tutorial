@@ -1,0 +1,13 @@
+db:
+  password: password;
+  username: root
+  url: localhost
+  poolSize: 10
+
+logging:
+  level:
+    root: fatal
+    com.soCompany.database.ConnectionPool: info
+  file:
+    name: by.socompany
+    path: /
