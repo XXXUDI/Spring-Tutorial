@@ -19,6 +19,6 @@ public class ApplicationRunner {
         System.out.println(userService);
 
         var companyService = context.getBean(CompanyService.class);
-        companyService.findById(1);
+        companyService.findById(4);
     }
 }
