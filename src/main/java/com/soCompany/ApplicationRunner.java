@@ -19,6 +19,7 @@ public class ApplicationRunner {
         System.out.println(userService);
 
         var companyService = context.getBean(CompanyService.class);
-        companyService.findById(4);
+        // here is the smallest change in the code just to test how push is works
+        companyService.findById(6);
     }
 }
