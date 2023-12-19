@@ -6,6 +6,10 @@ import lombok.*;
 
 import java.sql.Date;
 
+@NamedQuery(
+        name = "Company.findByName",
+        query = "SELECT c from Company c where lower(c.name) = lower(:name)"
+)
 @Data
 @Entity
 @NoArgsConstructor

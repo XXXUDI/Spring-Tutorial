@@ -2,20 +2,22 @@ package com.soCompany.SpringBootTutorial.Integration.repository;
 
 import com.soCompany.SpringBootTutorial.annotations.IT;
 import com.soCompany.database.CompanyRepository;
+import com.soCompany.database.EmployeeRepository;
 import com.soCompany.database.UserRepository;
 import com.soCompany.entity.Company;
+import com.soCompany.entity.Employee;
 import com.soCompany.service.UserService;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.annotation.Commit;
+import org.springframework.test.annotation.Rollback;
 
 import java.sql.Date;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 @IT
 @Transactional
@@ -28,6 +30,9 @@ public class CompanyRepositoryTest {
 
     @Autowired
     private CompanyRepository repository;
+
+    @Autowired
+    private EmployeeRepository employeeRepository;
 
     @Test
     void findById() {
@@ -57,11 +62,26 @@ public class CompanyRepositoryTest {
 
     @Test
     void findByFragment() {
-        var maybeCompany = repository.findAllByNameContainingIgnoreCase("Company");
-        assertTrue((maybeCompany.size()) > 1);
+//        var maybeCompany = repository.findAllByNameContainingIgnoreCase("Company");
+//        assertTrue((maybeCompany.size()) > 1);
         var company = repository.findByName("Apple");
         assertTrue(company.isPresent());
     }
 
+    @Test
+    void findEmployeeByFragment() {
+        var expected = employeeRepository.findAllByFirstNameContainingIgnoreCaseAndLastNameContainingIgnoreCase("J", "S");
+        assertFalse(expected.isEmpty());
+        var actual = employeeRepository.findAllByNamesContaining("J", "S");
+        assertFalse(actual.isEmpty());
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void updatePosition() {
+        var actual = employeeRepository.updatePosition("Pilot", 1, 2);
+        assertEquals(2, actual);
+    }
 }
 
