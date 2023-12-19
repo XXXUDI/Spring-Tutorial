@@ -1,6 +1,7 @@
 package com.soCompany;
 
 import com.soCompany.database.ConnectionPool;
+import com.soCompany.database.EmployeeRepository;
 import com.soCompany.service.CompanyService;
 import com.soCompany.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,9 +24,8 @@ public class ApplicationRunner {
         // here is the smallest change in the code just to test how push is works
         companyService.findById(6);
 
+        EmployeeRepository employeeRepository = context.getBean(EmployeeRepository.class);
 
-        Test test = context.getBean(Test.class);
-        test.is();
-        System.out.println(test.findBy(1));
+
     }
 }

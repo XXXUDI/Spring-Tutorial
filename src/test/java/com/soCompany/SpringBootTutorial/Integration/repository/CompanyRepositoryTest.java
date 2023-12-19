@@ -9,14 +9,21 @@ import com.soCompany.entity.Employee;
 import com.soCompany.service.UserService;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.test.annotation.Commit;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.event.annotation.BeforeTestMethod;
 
 import java.sql.Date;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @IT
@@ -33,6 +40,24 @@ public class CompanyRepositoryTest {
 
     @Autowired
     private EmployeeRepository employeeRepository;
+
+    @BeforeEach
+    void printAllUser() {
+        var employees = employeeRepository.findAll();
+        if(!employees.isEmpty()) {
+            for(Employee employee : employees) {
+                System.out.println(employee.getId() + " Name: " + employee.getFirstName() + ": " + employee.getSalary());
+            }
+        }
+    }
+
+    @Test
+    void testPageable() {
+        var pageable = PageRequest.of(1, 1, Sort.by("salary").descending());
+        var employees = employeeRepository.findAllBy(pageable);
+        employees.forEach(e -> System.out.println(e.getFirstName()));
+
+    }
 
     @Test
     void findById() {
@@ -82,6 +107,33 @@ public class CompanyRepositoryTest {
     void updatePosition() {
         var actual = employeeRepository.updatePosition("Pilot", 1, 2);
         assertEquals(2, actual);
+    }
+
+    @Test
+    void checkMaxSalary() {
+        var emp = employeeRepository.findFirstBySalaryIsNotNullOrderBySalaryDesc();
+        assertFalse(emp.isEmpty());
+        emp.ifPresent(
+                e -> System.out.println(e.getSalary())
+        );
+    }
+
+    @Test
+    void findTop3HeightEmployeeBySalary() {
+        var empls = employeeRepository.findFirst3BySalaryIsNotNullOrderBySalaryDesc();
+        assertFalse(empls.isEmpty());
+        for(Employee employee : empls) {
+            System.out.println(employee.getFirstName() + ": " + employee.getSalary());
+        }
+    }
+
+    @Test
+    void findFirst3() {
+        var employees = employeeRepository.findFirst3By(Sort.by("salary").and(Sort.by("id")).descending());
+        assertFalse(employees.isEmpty());
+        for(Employee employee : employees) {
+            System.out.println(employee.getFirstName() + ": " + employee.getSalary());
+        }
     }
 }
 
