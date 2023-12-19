@@ -1,16 +1,1 @@
-2023-12-15T00:16:56.361+02:00  INFO 10644 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:17:24.687+02:00  INFO 15064 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:33:05.994+02:00  INFO 18168 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:33:24.904+02:00  INFO 15052 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:33:41.044+02:00  INFO 6020 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:34:03.275+02:00  INFO 14516 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:34:43.823+02:00  INFO 3480 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:34:49.762+02:00  INFO 10184 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:36:01.788+02:00  INFO 8348 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:36:06.279+02:00  INFO 14772 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:39:48.581+02:00  INFO 16720 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:40:26.267+02:00  INFO 14536 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:42:14.146+02:00  INFO 18236 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:42:27.621+02:00  INFO 7132 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:43:35.588+02:00  INFO 10916 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
-2023-12-15T00:43:48.909+02:00  INFO 17756 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool
+2023-12-18T15:23:26.118+02:00  INFO 19388 --- [main] com.soCompany.database.ConnectionPool    : Init C. Pool

@@ -3,6 +3,7 @@ package com.soCompany;
 import com.soCompany.database.ConnectionPool;
 import com.soCompany.service.CompanyService;
 import com.soCompany.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
@@ -21,5 +22,10 @@ public class ApplicationRunner {
         var companyService = context.getBean(CompanyService.class);
         // here is the smallest change in the code just to test how push is works
         companyService.findById(6);
+
+
+        Test test = context.getBean(Test.class);
+        test.is();
+        System.out.println(test.findBy(1));
     }
 }

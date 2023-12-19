@@ -1,26 +1,27 @@
 package com.soCompany.entity;
 
 
+import com.soCompany.entity.interfaces.BaseEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
 @Table(name = "employees")
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@Builder
 @NoArgsConstructor
-public class Employee {
+public class Employee implements BaseEntity {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "employee_id")
     private Integer id;
 
-    @Column(name = "first_name")
-    private Integer company_id;
+    @Column(name = "company_id")
+    private Integer companyID;
 
     @Column(name = "first_name")
     private String firstName;
@@ -32,18 +33,18 @@ public class Employee {
     private String position;
 
     @Column(name = "salary")
-    private Integer salary;
+    private BigDecimal salary;
 
     @Column(name = "hire_date")
     private Date hireDate;
 
-    public Employee(Integer company_id,
+    public Employee(Integer companyID,
                     String firstName,
                     String lastName,
                     String position,
-                    Integer salary,
+                    BigDecimal salary,
                     Date hireDate) {
-        this.company_id = company_id;
+        this.companyID = companyID;
         this.firstName = firstName;
         this.lastName = lastName;
         this.position = position;

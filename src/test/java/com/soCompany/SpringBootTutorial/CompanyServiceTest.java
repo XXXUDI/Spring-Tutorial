@@ -28,8 +28,8 @@ public class CompanyServiceTest {
 
     @Test
     void findById() {
-        Mockito.doReturn(Optional.of(new Company(COMPANY_ID)))
-                .when(repository).findById(COMPANY_ID);
+//        Mockito.doReturn(Optional.of(new Company(COMPANY_ID)))
+//                .when(repository).findById(COMPANY_ID);
 
         var actualResult = companyService.findById(COMPANY_ID);
 

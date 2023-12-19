@@ -1,4 +1,4 @@
-package com.soCompany.SpringBootTutorial;
+package com.soCompany.SpringBootTutorial.Integration;
 
 import com.soCompany.ApplicationRunner;
 import com.soCompany.service.CompanyService;
