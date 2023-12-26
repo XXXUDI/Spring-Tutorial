@@ -1,4 +1,4 @@
-package com.soCompany.dto;
+package com.soCompany.dto.unusable;
 
 import lombok.Getter;
 import lombok.Setter;

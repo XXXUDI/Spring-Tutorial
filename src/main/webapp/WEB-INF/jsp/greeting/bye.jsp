@@ -5,6 +5,6 @@
     <title>Title</title>
 </head>
 <body>
-
+bye, ${name} and ${dto.username} and ${requestScope.ClientDto.username}
 </body>
 </html>

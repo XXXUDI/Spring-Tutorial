@@ -1,4 +1,4 @@
-package com.soCompany.dto;
+package com.soCompany.dto.unusable;
 
 import com.soCompany.database.ConnectionPool;
 import org.springframework.beans.factory.annotation.Autowired;

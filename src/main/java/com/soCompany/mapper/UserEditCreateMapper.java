@@ -17,12 +17,19 @@ public class UserEditCreateMapper implements Mapper<UserEditCreateDto, Employee>
 
     @Override
     public Employee map(UserEditCreateDto object) {
-        return null;
+        return Employee.builder()
+                .id(object.getId())
+                .salary(object.getSalary())
+                .position(object.getPosition())
+                .hireDate(object.getHireDate())
+                .firstName(object.getFirstName())
+                .lastName(object.getLastName())
+                .companyID(object.getCompanyId()).build();
     }
 
-    private Company getCompany(Integer companyId) {
-        return Optional.ofNullable(companyId)
-                .flatMap(companyRepository::findById)
-                .orElse(null);
-    }
+//    private Company getCompany(Integer companyId) {
+//        return Optional.ofNullable(companyId)
+//                .flatMap(companyRepository::findById)
+//                .orElse(null);
+//    }
 }

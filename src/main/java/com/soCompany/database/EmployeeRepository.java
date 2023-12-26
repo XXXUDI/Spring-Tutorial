@@ -1,7 +1,7 @@
 package com.soCompany.database;
 
 import com.soCompany.entity.Employee;
-import com.soCompany.dto.EmployeeInfo;
+import com.soCompany.dto.unusable.EmployeeInfo;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;

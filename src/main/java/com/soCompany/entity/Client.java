@@ -17,7 +17,7 @@ public class Client implements BaseEntity {
     @Column(name = "client_id")
     private Integer id;
     @Column(name = "company_id")
-    private Integer companyID;
+    private Integer companyId;
     @Column(name = "name")
     private String name;
     @Column(name = "contact_person")
@@ -28,7 +28,7 @@ public class Client implements BaseEntity {
     private String phoneNumber;
 
     public Client(Integer companyID, String name, String contactPerson, String email, String phoneNumber) {
-        this.companyID = companyID;
+        this.companyId = companyID;
         this.name = name;
         this.contactPerson = contactPerson;
         this.email = email;

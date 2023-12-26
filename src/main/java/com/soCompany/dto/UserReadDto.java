@@ -6,7 +6,7 @@ import java.sql.Date;
 public class UserReadDto {
     private Integer id;
 
-    private Integer companyId;
+    private CompanyReadDto company;
 
     private String firstName;
 
