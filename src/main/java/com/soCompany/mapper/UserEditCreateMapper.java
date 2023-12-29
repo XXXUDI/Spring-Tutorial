@@ -10,10 +10,19 @@ import org.springframework.stereotype.Component;
 import java.util.Optional;
 
 @Component
-@RequiredArgsConstructor
 public class UserEditCreateMapper implements Mapper<UserEditCreateDto, Employee>{
 
-    private final CompanyRepository companyRepository;
+    // This method is for update method is service class. We don`t need to create new user, because we already have.
+    @Override
+    public Employee map(UserEditCreateDto fromObject, Employee toObject) {
+        toObject.setFirstName(fromObject.getFirstName());
+        toObject.setLastName(fromObject.getLastName());
+        toObject.setPosition(fromObject.getPosition());
+        toObject.setSalary(fromObject.getSalary());
+        toObject.setCompanyID(fromObject.getCompanyId());
+        toObject.setHireDate(fromObject.getHireDate());
+        return toObject;
+    }
 
     @Override
     public Employee map(UserEditCreateDto object) {
@@ -26,10 +35,4 @@ public class UserEditCreateMapper implements Mapper<UserEditCreateDto, Employee>
                 .lastName(object.getLastName())
                 .companyID(object.getCompanyId()).build();
     }
-
-//    private Company getCompany(Integer companyId) {
-//        return Optional.ofNullable(companyId)
-//                .flatMap(companyRepository::findById)
-//                .orElse(null);
-//    }
 }
