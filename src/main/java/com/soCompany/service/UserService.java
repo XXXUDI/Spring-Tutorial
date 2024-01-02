@@ -1,14 +1,11 @@
 package com.soCompany.service;
 
 import com.soCompany.database.EmployeeRepository;
-import com.soCompany.database.UserRepository;
 import com.soCompany.dto.UserEditCreateDto;
 import com.soCompany.dto.UserReadDto;
-import com.soCompany.entity.Employee;
 import com.soCompany.mapper.UserEditCreateMapper;
 import com.soCompany.mapper.UserReadMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.ToString;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

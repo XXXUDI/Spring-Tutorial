@@ -29,7 +29,7 @@ public class CompanyService {
             log.info("Trying to publish event.");
             applicationEventPublisher.publishEvent(new EntityEvent(entity, AccessType.READ));
             log.info("event has been published");
-            return new CompanyReadDto(entity.getId());
+            return new CompanyReadDto(entity.getId(), entity.getName());
         });
     }
 }
