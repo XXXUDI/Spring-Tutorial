@@ -1,11 +1,14 @@
 package com.soCompany.http.controller;
 
 import com.soCompany.dto.UserEditCreateDto;
+import com.soCompany.dto.UserReadDto;
 import com.soCompany.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 @RequestMapping("/users")
 @Controller
@@ -15,31 +18,35 @@ public class UserController {
 
     @GetMapping
     public String findAll(Model model) {
-        return null;
+        model.addAttribute("users", userService.findAll());
+        return "user/users";
     }
 
     @GetMapping("/{id}")
     public String findById(Model model,
                            @PathVariable Integer id) {
-        return null;
+        model.addAttribute("user", userService.findById(id));
+        return "user/user";
     }
 
     @PostMapping
-    public String create(Model model,
-                         @ModelAttribute UserEditCreateDto userEditCreateDto) {
-        return null;
+    public String create(@ModelAttribute UserEditCreateDto userEditCreateDto) {
+        UserReadDto userDto = userService.create(userEditCreateDto);
+        return "redirect:users/" + userDto.getId();
     }
 
     @PostMapping("/{id}/update")
-    public String update(Model model,
-                         @PathVariable Long id,
+    public String update(@PathVariable Integer id,
                          @ModelAttribute UserEditCreateDto userEditCreateDto) {
-        return null;
+        return userService.update(id, userEditCreateDto).map(user -> "redirect:/user/{id}")
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
     }
 
     @PostMapping("/{id}/delete")
-    public String delete(Model model,
-                         @PathVariable Long id){
-        return null;
+    public String delete(@PathVariable Integer id){
+        if(!userService.delete(id)) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+        }
+        return "redirect:/users";
     }
 }
