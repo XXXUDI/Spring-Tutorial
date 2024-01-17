@@ -2,6 +2,7 @@ package com.soCompany.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.sql.Date;
@@ -21,6 +22,7 @@ public class UserReadDto {
 
     private BigDecimal salary;
 
+    @DateTimeFormat
     private Date hireDate;
 
 }

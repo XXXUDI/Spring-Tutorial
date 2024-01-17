@@ -16,4 +16,5 @@ public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
     List<Company> findAllByNameContainingIgnoreCase(String fragment);
 
+    List<Company> findAll();
 }

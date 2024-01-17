@@ -1,13 +1,13 @@
 package com.soCompany.dto;
 
-import jakarta.persistence.Column;
-import lombok.Value;
+import lombok.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
 import java.sql.Date;
 
-@Value
+@Data
+@AllArgsConstructor
 public class UserEditCreateDto {
     private Integer id;
 
@@ -21,6 +21,7 @@ public class UserEditCreateDto {
 
     private BigDecimal salary;
 
-    @DateTimeFormat(pattern = "dd=MM-yyyy")
-    private Date hireDate;
+//    @DateTimeFormat(pattern = "yyyy-MM-dd")
+//    Date hireDate;
+
 }

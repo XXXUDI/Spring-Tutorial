@@ -20,7 +20,7 @@ public class UserEditCreateMapper implements Mapper<UserEditCreateDto, Employee>
         toObject.setPosition(fromObject.getPosition());
         toObject.setSalary(fromObject.getSalary());
         toObject.setCompanyID(fromObject.getCompanyId());
-        toObject.setHireDate(fromObject.getHireDate());
+//        toObject.setHireDate(fromObject.getHireDate());
         return toObject;
     }
 
@@ -30,7 +30,7 @@ public class UserEditCreateMapper implements Mapper<UserEditCreateDto, Employee>
                 .id(object.getId())
                 .salary(object.getSalary())
                 .position(object.getPosition())
-                .hireDate(object.getHireDate())
+//                .hireDate(object.getHireDate())
                 .firstName(object.getFirstName())
                 .lastName(object.getLastName())
                 .companyID(object.getCompanyId()).build();
